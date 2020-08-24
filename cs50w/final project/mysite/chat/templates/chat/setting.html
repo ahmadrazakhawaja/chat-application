@@ -1,0 +1,81 @@
+{% extends "chat/layout.html" %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    {% if back %}
+    <form action="{% url 'contact' name=room_name   %}">
+        <input type="submit" class="btn btn-dark" value="Go Back" />
+    </form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    
+<div class="container">
+    <a id="note">Note: You can't remove a group member from the group once you assign him admin Rights.</a>
+    <div class="row">
+      <div class="col-sm">
+        <h2 id="hx2">Contacts</h2>
+        {% for contact in contacts %}
+    <div class="contacts">
+        <a  class="username">{{ contact.contact }}</a>
+        {% for group in groupy  %}
+        {% ifequal group.username contact.contact %}
+        <label class="delete"></label>
+        {% endifequal %}
+        {% endfor %}
+        <button class="btn btn-primary" id="add" class="add"> Add to Group </button>
+    </div>
+    {% endfor %}
+      </div>
+      <div class="col-sm">
+        <h2 id="hx3">Group Members</h2>
+        {% for group in groupy  %}
+    <div class="groups">
+        <a class="username">{{ group.username }}</a>
+        {% for jd in admin  %}
+        {% ifequal jd.username group.username %}
+        <label class="delete2"></label>
+        {% endifequal %}
+        {% endfor %}
+        <button class="btn btn-primary" id="remove"> Remove From Group</button>
+        <button class="btn btn-primary" id="admin"> Make Admin </button>
+        {% ifequal group.id id %}
+        {% if creator %}
+        <button class="btn btn-primary" id="removeadmin"> Remove from Adminship </button>
+        {% endif %}
+        {% endifequal %}
+    </div>
+    {% endfor %}
+</div>
+    {{ room_name|json_script:"room-name" }}
+      </div>
+    </div>
+
+<!--
+<div class="grid-container">
+    <h2 id="hx2">Contacts</h2>
+    <h2 id="hx3">Groups</h2>
+    {% for contact in contacts %}
+    <div class="contacts">
+        <a href="" class="username">{{ contact.username }}</a>
+        <label id="status">{{ contact.status }}</label>
+    </div>
+    {% endfor %}
+    {% for group in groups  %}
+    <div class="groups">
+        <a href="" class="username">{{ group.group_name }}</a>
+    </div>
+    {% endfor %}
+    
+    {{ room_name|json_script:"room-name" }}
+  </div>
+    {% endif %}
+-->
+    {% endblock %}
+</body>
+</html>

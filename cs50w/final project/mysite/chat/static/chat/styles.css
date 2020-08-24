@@ -1,0 +1,61 @@
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+#chat-log, #chat-message-input ,#chat-message-submit {
+    grid-column-start: 0;
+    grid-column-end: 1; 
+}
+#chat-message-input{
+
+}
+
+.contacts{
+    grid-column-start:0;
+    grid-column-end:1;
+    border-color: gray;
+
+}
+
+.username{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    display: inline;
+
+}
+#hx2{
+    grid-column-start: 0;
+    grid-column-end: 1; 
+}
+#hx3{
+    grid-column-start: 0;
+    grid-column-end: 1; 
+}
+
+#heading{
+   display: block;
+   font-size: 40px;
+   
+}
+
+.groups{
+    grid-column-start:0;
+    grid-column-end:1;
+}
+
+.container{
+    padding: 0px;
+    margin: 0px;
+}
+
+#add,#remove,#admin,#removeadmin{
+    vertical-align: super;
+    margin-left: 5px;
+}
+
+
+
+

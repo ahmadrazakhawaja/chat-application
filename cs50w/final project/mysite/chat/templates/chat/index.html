@@ -1,0 +1,81 @@
+{% extends "chat/layout.html" %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    {% if back %}
+    <form action="{% url 'index' %}">
+        <input type="submit" class="btn btn-dark" value="Go Back" />
+    </form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <form>
+        <div class="form-group">
+            <label id="text">Enter Username or Group Name to add to Contacts</label>
+    <input type="text" class="form-control" id="room-name-input" placeholder="Enter Username">
+    <br>
+    <input id="room-name-submit" class="btn btn-primary" type="button" value="Enter">
+</div>
+</form>
+<form>
+    <div class="form-group">
+        <label id="text">Create New Group</label>
+<input type="text" class="form-control" id="group-name-input" placeholder="Enter Group Name">
+<br>
+<input id="group-name-submit" class="btn btn-primary" type="button" value="Enter">
+</div>
+</form>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg">
+        <h2 id="hx2">Contacts</h2>
+        {% for contact in contacts %}
+    <div class="contacts">
+        <a href="{% url 'contact' name=contact.username   %}" class="username">{{ contact.username }}</a>
+        <label id="status">{{ contact.status }}</label>
+        <a class="unseen"></a>
+    </div>
+    {% endfor %}
+      </div>
+      <div class="col-lg">
+        <h2 id="hx3">Groups</h2>
+        {% for group in groups  %}
+    <div class="groups">
+        <a href="{% url 'contact' name=group.group_name   %}" class="username">{{ group.group_name }}</a>
+        <a class="unseen2"></a>
+    </div>
+    {% endfor %}
+</div>
+    {{ room_name|json_script:"room-name" }}
+      </div>
+    </div>
+
+<!--
+<div class="grid-container">
+    <h2 id="hx2">Contacts</h2>
+    <h2 id="hx3">Groups</h2>
+    {% for contact in contacts %}
+    <div class="contacts">
+        <a href="{% url 'contact' name=contact.username   %}" class="username">{{ contact.username }}</a>
+        <label id="status">{{ contact.status }}</label>
+    </div>
+    {% endfor %}
+    {% for group in groups  %}
+    <div class="groups">
+        <a href="{% url 'contact' name=group.group_name   %}" class="username">{{ group.group_name }}</a>
+    </div>
+    {% endfor %}
+    
+    {{ room_name|json_script:"room-name" }}
+  </div>
+    {% endif %}
+-->
+    {% endblock %}
+</body>
+</html>

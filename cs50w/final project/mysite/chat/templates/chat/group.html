@@ -1,0 +1,50 @@
+{% extends "chat/layout.html" %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    {% if back %}
+    <form id="goback" action="{% url 'index' %}">
+        <input type="submit" class="btn btn-dark" value="Go Back" />
+    </form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    {% if adminv %}
+    <form action="{% url 'setting' name=room_name %}" method="POST">
+        {% csrf_token %}
+    <input id="settings" class="btn btn-primary" type="submit" value="Settings">
+</form>
+{% endif %}
+
+
+<div class="container">
+    <h2 id="hx2"> Admin </h2>
+    {% for contact in admin %}
+    <div class="groups">
+
+        <a  class="username">{{ contact.username }}</a>
+    </div>
+    {% endfor %}
+    <h2 id="hx3"> members </h2>
+    {% for contact in members %}
+    <div class="contacts">
+
+        <a  class="username">{{ contact.username }}</a>
+    </div>
+    {% endfor %}
+    <hr>
+    <label id="heading" for="chat-log">{{ room_name }}</label>
+    <textarea id="chat-log" class="form-control form-control-lg" rows="20" cols="50"></textarea><br>
+    <input id="chat-message-input" type="text" class="form-control" placeholder="Write text here too send"><br>
+    <input id="chat-message-submit" type="button" value="Send" class="btn btn-primary">
+    {{ room_name|json_script:"room-name" }}
+  </div>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
