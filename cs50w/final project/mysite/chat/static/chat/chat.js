@@ -355,7 +355,7 @@ document.querySelectorAll('.delete').forEach(element => {
 
 
 const chatSocket2 = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
 );
 
@@ -448,7 +448,7 @@ chatSocket2.onclose = function(e) {
 
 if(document.querySelector('#room-name-input')!=null){
 const chatSocketx = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
     +'/ws'
 );
@@ -487,7 +487,7 @@ chatSocketx.onclose = function(e) {
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/chat/'
             + roomName
@@ -618,7 +618,7 @@ if(document.querySelector('.container').firstElementChild.id==='note'){
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
     
             const chatSocket3 = new WebSocket(
-                'ws://'
+                'wss://'
                 + window.location.host
                 + '/ws/chat/'
                 + roomName
