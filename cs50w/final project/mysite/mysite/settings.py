@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd2a1jnhnjag55m',
         'Host': 'ec2-3-214-4-151.compute-1.amazonaws.com',
         'PORT': 5432,
