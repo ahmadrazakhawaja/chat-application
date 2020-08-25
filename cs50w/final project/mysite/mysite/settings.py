@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')%1mgt&8e+--ojfs!agt5)opjy)59z_5@9eo@&7-55g-^)v$*@'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['cs50wchat.herokuapp.com','127.0.0.1']
 
@@ -78,14 +79,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd2a1jnhnjag55m',
         'Host': 'ec2-3-214-4-151.compute-1.amazonaws.com',
         'PORT': 5432,
         'USER': 'jfpfzjaczfvejt',
         'PASSWORD': '9d14ae7aec76029addbc43c24e7ce4f96e80ee5128ab7f51e04ec2a35506beb4',
+        'CONN_MAX_AGE': 500
     }
 }
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 AUTH_USER_MODEL = "chat.User"
@@ -129,6 +133,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 ASGI_APPLICATION = 'mysite.routing.application'
