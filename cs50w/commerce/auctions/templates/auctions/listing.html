@@ -1,0 +1,84 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{listings.title}}</h2>
+    <div id="Message">{{ Message }}</div>
+    <div id="error">{{ Error }}</div>
+    {% if user.is_authenticated %}
+    {% ifequal user.id listings.User.id %}
+    <form id="close" action="{% url 'listing' id=listings.id %}" method="POST">
+        {% csrf_token %}
+            <input type="submit" value="Close" name="closem" id="closem">
+    </form>
+    {% endifequal %}
+    {% if watchlist %}
+    <form id="watchlistinactive" action="{% url 'listing' id=listings.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Remove From Watchlist" name="removew" id="removew">
+</form>
+{% else %}
+<form id="watchlistactive" action="{% url 'listing' id=listings.id %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Add to Watchlist" name="w" id="w">
+</form>
+    {% endif %}
+    {% endif %}
+            <label id="text">{{listings.text}}</label>
+            <img src = "{{ listings.image_url }}"  alt="{{listings.title}}" id="image">
+            <label id="bid">starting Price: ${{listings.starting_bid}}</label>
+            {% ifequal bid.User_id NULL %}
+            <label id="bid2">Highest Bid: $0</label>
+            {% else %}
+            <label id="bid2">Highest Bid: ${{ bid.highest_bid }}</label>
+            {% endifequal %}
+            <label id="category">Category: {{listings.category}}</label>
+            {% if user.is_authenticated %}
+            {% if listings.status %}
+            <label class="status">Status:<span id="active">Active</span></label>
+            <form id="bidamount" action="{% url 'listing' id=listings.id %}" method="POST">
+                {% csrf_token %}
+                {% ifequal bid.User_id NULL %}
+                <input type="number" id="bidding" placeholder="Enter Bid Amount" name="bidamount" min="{{listings.starting_bid}}">
+                {% else %}
+                <input type="number" id="bidding" placeholder="Enter Bid Amount" name="bidamount" min="{{high_bid}}">
+                {% endifequal %}
+                <input type="submit" value="Confirm" name="bidsubmit" id="bidsubmit">
+            {% else %}
+            <label class="status">Status: <span id="closed">Closed</span></label>
+            <input type="text" id="bidding" placeholder="Enter Bid Amount" disabled>
+            <input type="submit" value="Confirm" id="bidsubmit" disabled>
+            {% endif %}
+            {% else %}
+            {% if listings.status %}
+            <label class="status">Status:<span id="active">Active</span></label>
+                <input type="text" id="bidding" placeholder="Enter Bid Amount" name="bidamount" disabled>
+                <input type="submit" value="Confirm" id="bidsubmit" disabled>
+                <label class="status">Please Login to bid</label>
+            {% else %}
+            <label class="status">Status: <span id="closed">Closed</span></label>
+            <input type="text" id="bidding" placeholder="Enter Bid Amount" disabled>
+            <input type="submit" value="Confirm" id="bidsubmit" disabled>
+            {% endif %}
+            {% endif %}
+        </form>
+        {% if user.is_authenticated %}
+        <form id="bidamount" action="{% url 'listing' id=listings.id %}" method="POST">
+            {% csrf_token %}
+            <textarea id="comment" name="comment" placeholder="Wrtie a comment" cols="75" rows="10"></textarea>
+            <input type="submit" value="Add Comment" id="addcomment" name="addcomment">
+        </form>
+        {% endif %}
+        <hr>
+        {% for comment in comments %}
+        {% for lk in users %}
+        {% ifequal comment.User_id lk.id %}
+        <div class="users">{{lk.username}}</div>
+        {% endifequal %}
+        {% endfor %}
+        <div class="comments">{{comment.comments}}</div>
+        <hr>
+        {% endfor %}
+
+            
+    
+{% endblock %}

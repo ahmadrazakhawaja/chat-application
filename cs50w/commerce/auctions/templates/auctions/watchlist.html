@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Watchlist</h2>
+<hr>
+        {% for listing in listings %}
+        {% if listing.status   %}
+        <label id="id">{{ forloop.counter }}.</label>
+        <a href="{% url 'listing' id=listing.id %}" id="title">{{listing.title}}.</a>
+        <label id="text">{{listing.text}}</label>
+        <img src = "{{ listing.image_url }}"  alt="{{listing.title}}" id="image">
+        {% for bids in bid %}
+        {% ifequal listing.id bids.listing.id %}
+        <label id="bid">${{bids.highest_bid}}</label>
+        {% endifequal  %}
+        {% endfor %}
+        {% endif %}
+        <hr>
+        {% endfor %}
+{% endblock %}
