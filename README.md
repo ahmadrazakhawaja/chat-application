@@ -48,18 +48,24 @@ It contains total 8 models including the user model.
 This folder contains all the html files for each page including the layout.html
 
     1. index.html 
-    This is the index page where user can see all his contacts and groups and can create new group or add new contact.
-    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Index_page.png?raw=true)
-    
+    This is the index page where user can see all his contacts and groups and can create new group or add new contact. <br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Index_page.png?raw=true)<br/><br/>
     2. group.html
-    This is the group_chat page where user can see all the group chat and send text to group<br>
-    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page1.png?raw=true)<br>
-    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page2.png?raw=true)<br>
-    3. layout.html
+    This is the group_chat page where user can see all the group chat and send text to group<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page1.png?raw=true)<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page2.png?raw=true)<br/><br/>
     4. login.html
+    This is the login page<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Login_page.png?raw=true)<br/><br/>
     5. register.html
+    This is the register page<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Register_page.png?raw=true)<br/><br/>
     6. room.html
+    One to One chat page<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Chatting_page.png?raw=true)<br/><br/>
     7. setting.html
+    Group Settings page<br/><br/>
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_settings_page.png?raw=true)<br/><br/>
 
 6. **static/chat folder**:
 This folder contains the styles.css stylesheet for the entire site and the **very important chat.js** javascript file which contains the code to initiate the websockets and use fetch api at the client side and handle all client side interactivity. Bootstrap is also used to style the frontend and make it mobile responsive although not which focus is given to styling and asthetics as more focus was on backend services and on handling all the data in real time.
