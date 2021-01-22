@@ -47,23 +47,23 @@ It contains total 8 models including the user model.
 5. **Templates/Chat folder**:
 This folder contains all the html files for each page including the layout.html
 
-    1. index.html 
+    1. index.html: 
     This is the index page where user can see all his contacts and groups and can create new group or add new contact. <br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Index_page.png?raw=true)<br/><br/>
-    2. group.html
+    2. group.html:
     This is the group_chat page where user can see all the group chat and send text to group<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page1.png?raw=true)<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page2.png?raw=true)<br/><br/>
-    4. login.html
+    4. login.html:
     This is the login page<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Login_page.png?raw=true)<br/><br/>
-    5. register.html
+    5. register.html:
     This is the register page<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Register_page.png?raw=true)<br/><br/>
-    6. room.html
+    6. room.html:
     One to One chat page<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Chatting_page.png?raw=true)<br/><br/>
-    7. setting.html
+    7. setting.html:
     Group Settings page<br/><br/>
     ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_settings_page.png?raw=true)<br/><br/>
 
