@@ -47,8 +47,13 @@ It contains total 8 models including the user model.
 5. **Templates/Chat folder**:
 This folder contains all the html files for each page including the layout.html
 
-    1. index.html
+    1. index.html 
+    This is the index page where user can see all his contacts and groups and can create new group or add new contact.
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Index_page.png?raw=true)
     2. group.html
+    This is the group_chat page where user can see all the group chat
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page1.png?raw=true)
+    ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Group_chat_page2.png?raw=true)
     3. layout.html
     4. login.html
     5. register.html
