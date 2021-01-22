@@ -48,7 +48,7 @@ It contains total 8 models including the user model.
 This folder contains all the html files for each page including the layout.html
 
     1. index.html
-      1. ![index page](https://drive.google.com/file/d/1i_i5lrhtcYciPWTt3aQEEzAJHFyafXPe/view?usp=sharing)
+      1. ![index page](https://github.com/ahmadrazakhawaja/chat-application/blob/master/cs50-web-screenshots/Index_page.png?raw=true)
     2. group.html
     3. layout.html
     4. login.html
