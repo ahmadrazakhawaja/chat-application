@@ -1,4 +1,4 @@
-# CS50 Web Final Project
+# Web Chat Application
 ## Technologies used:
 **Backend:**
 1. Django
