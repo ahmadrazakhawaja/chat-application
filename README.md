@@ -12,6 +12,7 @@
 **Database:**
 1. MySQL Lite
 
+A short video in which I showcase my project: https://youtu.be/SyBDWVyyfa4
 
 ## Project Description:
 This is a Real Time Web Chat Application. For real time communication between server and client Websocket are implemented using Django Channels package which allows to use WebSockets and other non-HTTP protocols in the Django site. The regular http requests and javascript fetch api are also used in this project.
